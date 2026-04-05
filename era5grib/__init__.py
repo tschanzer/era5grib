@@ -23,16 +23,18 @@ __all__ = [
     "logging",
     "parallel",
     "command_line",
-    "__version__"
-    ]
+    "__version__",
+]
 
-from .era5grib import (main,
-                       era5grib,
-                       data_handling,
-                       config,
-                       domain,
-                       logging,
-                       parallel,
-                       command_line)
+from era5grib import (
+    main,
+    era5grib,
+    data_handling,
+    config,
+    domain,
+    logging,
+    parallel,
+    command_line,
+)
 
 from ._version import __version__

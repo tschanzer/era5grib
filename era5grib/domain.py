@@ -1,6 +1,7 @@
 import numpy
 import xarray as xr
-import mule
+
+# import mule
 
 from pathlib import Path
 from typing import Optional, Tuple
@@ -62,14 +63,14 @@ def get_domain(fn: Optional[Path], polar: bool) -> Tuple[slice, slice]:
             lats, lons = domain_from_ds(ds, polar)
             found = True
 
-        if not found:
-            try:
-                log.info("Attempting to open domain as UM file with mule")
-                mf = mule.load_umfile(str(fn))
-            except ValueError:
-                die(f"Invalid input file for domain: {fn}")
-            log.info("Found")
-            lats, lons = domain_from_um(mf, polar)
+        # if not found:
+        #     try:
+        #         log.info("Attempting to open domain as UM file with mule")
+        #         mf = mule.load_umfile(str(fn))
+        #     except ValueError:
+        #         die(f"Invalid input file for domain: {fn}")
+        #     log.info("Found")
+        #     lats, lons = domain_from_um(mf, polar)
 
         log.info(f"Latitudes: Target ({lats.min():.2f}:{lats.max():.2f})")
         log.info(f"Longitudes: Target ({lons.min():.2f}:{lons.max():.2f})")

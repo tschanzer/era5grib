@@ -20,7 +20,7 @@ dependencies = [
   "intake_esm",
   "xesmf",
   "numpy",
-  "mule",
+  # "mule",
   "f90nml",
   "cdo",
   "distributed"
@@ -34,4 +34,3 @@ era5grib = "era5grib.main:main"
 
 [tool.setuptools.packages.find]
 exclude = ["examples", "test"]
-
