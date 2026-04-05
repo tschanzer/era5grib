@@ -26,8 +26,8 @@ regridding:
 dataset_tags:
   single-levels: surf
   pressure-levels: pl
-catalogue_paths: 
-  - /g/data/hh5/public/apps/nci-intake-catalogue/catalogue_new.yaml
+catalogue_paths:
+  - /g/data/up6/ts1181/nci-intake-catalogue/catalogue_new.yaml
 catalogues:
   - era5_land
   - era5
@@ -40,7 +40,7 @@ metadata_mapping:
   ecmwf_shortname: shortName
   units: units
 catalogue_flags:
-  era5_land: 
+  era5_land:
     realm: land_only
     product_type: reanalysis
     chunks:
