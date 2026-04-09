@@ -123,7 +123,7 @@ class ConfTree:
         if self.data is NoData:
             self.set_data(value)
         else:
-            if isinstance(value, type(self.data)):
+            if not isinstance(value, type(self.data)):
                 raise Exception(
                     f"Attempted to update data with conflicting type: Expected {type(self.data)}, Got {type(value)}"
                 )

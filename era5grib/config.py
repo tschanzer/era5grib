@@ -27,7 +27,7 @@ class Era5gribConfig:
         return True
 
     def update(self, infile: Union[str, Path]):
-        if infile in _known_configs:
+        if str(infile) in _known_configs:
             p = _p.parent / "config" / f"{infile}.yaml"
         else:
             p = Path(infile)

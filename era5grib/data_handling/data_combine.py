@@ -151,8 +151,8 @@ def handle_regridding(fields: Dict[Tuple[str, str], Era5field]) -> None:
     else:
         # Regridding to unloaded data array
         # regrid_params = conf.get("regridding") or {}
-        ref_field = conf.get("regrid_params.ref_field")
-        ref_date = conf.get("regrid_params.ref_date")
+        ref_field = conf.get("regridding.ref_field")
+        ref_date = conf.get("regridding.ref_date")
         # if "ref_field" not in regrid_params or "ref_date" not in regrid_params:
         if ref_field is None or ref_date is None:
             die("Regridding to unloaded dataarray requested, but regridding parameters "

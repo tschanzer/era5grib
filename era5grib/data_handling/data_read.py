@@ -98,11 +98,11 @@ def get_single_field(field_name: str, source: str, ts: Timestamp) -> Optional[xr
             return None
     log.debug(f"{source} is catalogue")
     for cat in get_catalogues():
-        if cat.name() == source:
+        if cat.name == source:
             log.debug(f"{source} found")
-            result = cat.search(parameter=field_name, year=ts.year, month=ts.month)
+            result = cat.search(parameter=field_name, year=str(ts.year), month=str(ts.month))
             return (
-                xr.open_dataarray(result.path[0])[0]
+                xr.open_dataarray(result.df['path'][0])[0]
                 .drop_vars("time")
                 .sel(latitude=lat_buffer_range, longitude=lon_buffer_range)
             )
@@ -287,9 +287,9 @@ def get_data(cats: list[Union[intake_esm.core.esm_datastore, NamedTuple]], t: Ti
         else:
             if "dataset" in cat.df:
                 dataset = cat.df["dataset"].unique()[0]
-                result = cat.search(parameter=remaining_list(fields, dataset), year=t.year, month=t.month)
+                result = cat.search(parameter=remaining_list(fields, dataset), year=str(t.year), month=str(t.month))
             else:
-                result = cat.search(parameter=remaining_list(fields), year=t.year, month=t.month)
+                result = cat.search(parameter=remaining_list(fields), year=str(t.year), month=str(t.month))
             if len(result.df) == 0:
                 log.debug("None Found")
                 continue
